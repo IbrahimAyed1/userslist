@@ -1,4 +1,4 @@
-import { TreeNode } from "./treenode.interface";
+import { TreeNode } from "./treenode.model";
 
 export class BaseNode{
     private name:string;

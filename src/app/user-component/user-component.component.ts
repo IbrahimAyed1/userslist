@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TreeNode } from '../Shared/treenode.interface';
+import { TreeNode } from '../Shared/treenode.model';
 import USERSLIST from '../../assets/users.json'
 import { BaseNode } from '../Shared/basenode';
 import { pipe } from 'rxjs';
