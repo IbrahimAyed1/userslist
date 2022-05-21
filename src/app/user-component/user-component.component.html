@@ -1,0 +1,36 @@
+<div class="top-bar p-2 d-flex align-items-center justify-content-center">
+    <h5>Users List</h5>
+</div>
+<div class="users-wrapper">
+  <ng-template #nodeTemplateRef let-node let-i="index">
+    <div class="node">
+      <div *ngIf="node" class="node__children">
+        <div class="card" style="width: 18rem">
+          <img
+            [src]="node._imagePath"
+            class="card-img-top"
+            alt="profile picture"
+          />
+          <div class="card-body">
+            <p class="card-text">{{ node._Code }}</p>
+            <h5 class="card-title text-uppercase">{{ node._Name }}</h5>
+          </div>
+        </div>
+        <ng-template
+          ngFor
+          [ngForOf]="node.childNode"
+          [ngForTemplate]="nodeTemplateRef"
+        >
+        </ng-template>
+        <ng-container
+          *ngTemplateOutlet="nodeTemplateRef; context: { list: node.childNode }"
+        ></ng-container>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template
+    [ngTemplateOutlet]="nodeTemplateRef"
+    [ngTemplateOutletContext]="{ $implicit: usersTree }"
+  >
+  </ng-template>
+</div>
